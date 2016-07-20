@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="restApp">
 
 <head>
     <meta charset="utf-8">
@@ -26,44 +26,9 @@
 <body>
 
 <div class="container">
-    <div class="row row-content"
-         ng-init="
-        dishes=[
-        {
-        name:'Uthapizza',
-        image:'images/uthapizza.png',
-        label:'hot',
-        description:'Good pizza',
-        price:'4.99',
-        comment: ''
-        },
-         {
-        name:'Zuchhipakoda',
-        image:'images/zucchipakoda.png',
-        label:'',
-        description:'Good pakodi',
-        price:'1.99',
-        comment: ''
-        },
-         {
-        name:'Vadonut',
-        image:'images/vadonut.png',
-        label:'vada',
-        description:'Good vada',
-        price:'2.99',
-        comment: ''
-        },
-         {
-        name:'Elaicheese cake',
-        image:'images/elaicheesecake.png',
-        label:'',
-        description:'Good cake',
-        price:'2.99',
-        comment: ''
-        },
-        ]">
+    <div class="row row-content" ng-controller="menuController as menuCtrl">
         <div class="col-xs-12">
-            <ul class="media-list" ng-repeat="dish in dishes">
+            <ul class="media-list" ng-repeat="dish in menuCtrl.dishes">
                 <li class="media">
                     <div class="media-left media-center">
                         <a href="#">
@@ -89,7 +54,46 @@
 </div>
 
 <script src="../bower_components/angular/angular.min.js"></script>
+<script> var app = angular.module('restApp', []);
 
+app.controller('menuController', function () {
+   var dishes=[
+        {
+            name:'Uthapizza',
+            image:'images/uthapizza.png',
+            label:'hot',
+            description:'Good pizza',
+            price:'4.99',
+            comment: ''
+        },
+        {
+            name:'Zuchhipakoda',
+            image:'images/zucchipakoda.png',
+            label:'',
+            description:'Good pakodi',
+            price:'1.99',
+            comment: ''
+        },
+        {
+            name:'Vadonut',
+            image:'images/vadonut.png',
+            label:'vada',
+            description:'Good vada',
+            price:'2.99',
+            comment: ''
+        },
+        {
+            name:'Elaicheese cake',
+            image:'images/elaicheesecake.png',
+            label:'',
+            description:'Good cake',
+            price:'2.99',
+            comment: ''
+        }
+    ];
+    this.dishes = dishes;
+});
+</script>
 </body>
 
 </html>
